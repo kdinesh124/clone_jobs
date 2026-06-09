@@ -7,9 +7,10 @@ spec:
   template:
     metadata:
       name: mybackup-pod
+ spec:
+  template:
     spec:
       containers:
       - name: mybackup-container
         image: busybox
-        command: ["sh", "-c", "echo Backup completed"]
       restartPolicy: Never
