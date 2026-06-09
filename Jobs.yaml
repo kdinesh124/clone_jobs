@@ -6,12 +6,10 @@ spec:
   backoffLimit: 4
   template:
     metadata:
-      name:
-        mybackup-image
+      name: mybackup-pod
     spec:
       containers:
-        - name: mybackup-container
-          image: busybox
-          ports:
-            - containerPort: 80
-          restartPolicy: Never
+      - name: mybackup-container
+        image: busybox
+        command: ["sh", "-c", "echo Backup completed"]
+      restartPolicy: Never
