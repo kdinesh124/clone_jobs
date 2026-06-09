@@ -2,11 +2,6 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: mybackup-job
-spec:
-  backoffLimit: 4
-  template:
-    metadata:
-      name: mybackup-pod
  spec:
   template:
     spec:
