@@ -3,13 +3,16 @@ kind: Job
 metadata:
   name: mybackup-job
 spec:
+  backoffLimit: 4
   template:
+    metadata:
+      name:
+        mybackup-image
     spec:
       containers:
-      - name: mybackup-container
-        image: busybox
-        command:
-        - /bin/sh
-        - -c
-        - "echo Backup Started && sleep 30 && echo Backup Completed"
+        - name: mybackup-container
+          image: busybox
+          ports:
+            - containerPort: 80
       restartPolicy: Never
+
